@@ -13,7 +13,7 @@
 @interface RecordViewController ()
 {
      NoiseAnalyzer *analyzer;
-    AudioTool *audioTool;
+    AudioTool *audioTooler;
 }
 @property (weak, nonatomic) IBOutlet UIButton *RecordBtn;
 @property (weak, nonatomic) IBOutlet UIButton *StopRecordBtn;
@@ -23,6 +23,14 @@
 @property (weak, nonatomic) IBOutlet UIProgressView *PowerProgress;
 @property (weak, nonatomic) IBOutlet UILabel *my_powerLabel;
 @property (weak, nonatomic) IBOutlet UIProgressView *my_PowerProgress;
+
+
+@property (weak, nonatomic) IBOutlet UILabel *timeMin;
+@property (weak, nonatomic) IBOutlet UILabel *timeMax;
+
+@property (weak, nonatomic) IBOutlet UILabel *timeing;
+
+@property (weak, nonatomic) IBOutlet UISlider *playPowerSlider;
 
 @end
 
@@ -37,8 +45,8 @@
 -(void)viewWillAppear:(BOOL)animated {
 
     [super viewWillAppear:animated];
-    audioTool = [AudioTool shared];
-    audioTool.delegate = self;
+    audioTooler = [AudioTool shared];
+    audioTooler.delegate = self;
     analyzer= [[NoiseAnalyzer alloc] init];
 }
 
@@ -48,7 +56,7 @@
     [self setLayarOfSubView:_RecordBtn];
     [self setLayarOfSubView:_StopRecordBtn];
     [self setLayarOfSubView:_PlayBtn];
-    
+    [self.playPowerSlider setThumbImage:[UIImage imageNamed:@"noke"] forState:UIControlStateNormal];
     
     [_PlayBtn setTitle:@"Play" forState:UIControlStateNormal];
     [_PlayBtn setTitle:@"Unplay" forState:UIControlStateSelected];
@@ -67,23 +75,21 @@
 
     play.selected = !play.selected;
     if (play.selected == YES) {
-        [audioTool startPlayVudio:0];
+        [audioTooler startPlayVudio:0];
     }else {
-        [audioTool stopPlay];
+        [audioTooler stopPlay];
     }
 
 }
 
 
-
-
 - (IBAction)RecordClick:(id)sender {
     
-    [audioTool startRecord];
+    [audioTooler startRecord];
 }
 
 - (IBAction)StopRecordClick:(id)sender {
-    [audioTool stopRecordIsRemoveVudioNow:NO];
+    [audioTooler stopRecordIsRemoveVudioNow:NO];
 }
 
 
@@ -106,11 +112,23 @@
     float myPowerProgress = analyzer.audioPower/120.0;
     self.my_powerLabel.text = [NSString stringWithFormat:@"myPower: %f",analyzer.audioPower];
     self.my_PowerProgress.progress = myPowerProgress;
-    
 }
+
 
 -(void)whenEndRecord:(AudioTool *)vudioTool withRecordPathArray:(NSArray *)audio_pathArr {
     [analyzer stopAudioAnalysis];
+}
+
+-(void)whenPlaying:(AudioTool *)audioTool withPlayTimer:(float)playTime {
+
+    self.playPowerSlider.maximumValue = audioTool.audioPlayer.duration;
+    self.timeMax.text = [NSString stringWithFormat:@"%.1f",audioTool.audioPlayer.duration];
+    self.timeing.text = [NSString stringWithFormat:@"%.1f",playTime];
+    self.playPowerSlider.value = playTime;
+    
+    if (self.playPowerSlider.value == 0) {
+        self.PlayBtn.selected = NO;
+    }
 }
 
 -(void)RightClick {
@@ -123,12 +141,15 @@
 
 -(void)setNew {
 
-    audioTool = nil;
-    analyzer = nil;
+    audioTooler.playTimeNum = 0.0;
+    [audioTooler stopPlay];
     self.my_powerLabel.text = @"my_power";
     self.powerLabel.text = @"power: ";
     self.PowerProgress.progress = .5;
     self.my_PowerProgress.progress = .5;
+    self.PlayBtn.selected = NO;
+    audioTooler = nil;
+    analyzer = nil;
     
 }
 

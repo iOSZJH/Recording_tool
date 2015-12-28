@@ -87,6 +87,35 @@
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                         <animations/>
                                     </progressView>
+                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="1" id="V4O-ns-6KD">
+                                        <rect key="frame" x="72" y="344" width="176" height="31"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                        <animations/>
+                                    </slider>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="--" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="8Mb-wy-9ZT">
+                                        <rect key="frame" x="270" y="348" width="42" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                        <animations/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="9"/>
+                                        <color key="textColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Xgh-Xi-Gxv">
+                                        <rect key="frame" x="126" y="320" width="68" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                        <animations/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                        <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="5tN-XD-dm6">
+                                        <rect key="frame" x="10" y="348" width="42" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                        <animations/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="9"/>
+                                        <color key="textColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <animations/>
                                 <color key="backgroundColor" red="0.95902960010000005" green="0.95770797590000001" blue="0.98079345849999999" alpha="1" colorSpace="calibratedRGB"/>
@@ -107,7 +136,11 @@
                         <outlet property="StopRecordBtn" destination="PVQ-SQ-3lI" id="hpK-pP-g4t"/>
                         <outlet property="my_PowerProgress" destination="YaD-Aa-tiz" id="pPh-LV-qSf"/>
                         <outlet property="my_powerLabel" destination="ZDh-Fz-S8P" id="pCu-wX-BsD"/>
+                        <outlet property="playPowerSlider" destination="V4O-ns-6KD" id="SwR-J9-dPG"/>
                         <outlet property="powerLabel" destination="0F5-Iv-xF4" id="Myb-n3-jmT"/>
+                        <outlet property="timeMax" destination="8Mb-wy-9ZT" id="hMq-4i-bdv"/>
+                        <outlet property="timeMin" destination="5tN-XD-dm6" id="6B5-KJ-weS"/>
+                        <outlet property="timeing" destination="Xgh-Xi-Gxv" id="Vpx-Dq-sD5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ohY-di-9Jh" userLabel="First Responder" sceneMemberID="firstResponder"/>

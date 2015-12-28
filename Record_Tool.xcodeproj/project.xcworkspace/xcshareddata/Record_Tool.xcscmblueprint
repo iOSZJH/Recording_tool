@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "A5D7862E99C67FF2F503C4699A852ACDBD380AF8",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "A5D7862E99C67FF2F503C4699A852ACDBD380AF8" : 0,
+    "13A380E63A35895916737509F2BC924F9B99BC22" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "FDDEF535-713D-46B5-A980-3F6107070C62",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "A5D7862E99C67FF2F503C4699A852ACDBD380AF8" : "Record_Tool\/",
+    "13A380E63A35895916737509F2BC924F9B99BC22" : "..\/.."
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "Record_Tool",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "Record_Tool.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "github.rtp.raleigh.ibm.com:rjyaobj-cn\/airquality.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "13A380E63A35895916737509F2BC924F9B99BC22"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/iOSZJH\/Recording_tool.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "A5D7862E99C67FF2F503C4699A852ACDBD380AF8"
+    }
+  ]
+}

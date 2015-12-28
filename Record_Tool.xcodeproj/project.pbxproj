@@ -22,6 +22,8 @@
 		EE2D457D1C27990B00D85E7F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE2D457C1C27990B00D85E7F /* Foundation.framework */; };
 		EE2D45811C2799F000D85E7F /* AudioTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EE2D457F1C2799F000D85E7F /* AudioTableViewCell.m */; };
 		EE2D45821C2799F000D85E7F /* AudioTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EE2D45801C2799F000D85E7F /* AudioTableViewCell.xib */; };
+		EEF87B131C311A4900454F51 /* noke.png in Resources */ = {isa = PBXBuildFile; fileRef = EEF87B121C311A4900454F51 /* noke.png */; };
+		EEF87B151C311AA700454F51 /* noke_Left.png in Resources */ = {isa = PBXBuildFile; fileRef = EEF87B141C311AA700454F51 /* noke_Left.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +71,8 @@
 		EE2D457E1C2799F000D85E7F /* AudioTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioTableViewCell.h; sourceTree = "<group>"; };
 		EE2D457F1C2799F000D85E7F /* AudioTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AudioTableViewCell.m; sourceTree = "<group>"; };
 		EE2D45801C2799F000D85E7F /* AudioTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AudioTableViewCell.xib; sourceTree = "<group>"; };
+		EEF87B121C311A4900454F51 /* noke.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = noke.png; sourceTree = "<group>"; };
+		EEF87B141C311AA700454F51 /* noke_Left.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = noke_Left.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -171,6 +175,8 @@
 		EE2D45731C2797E200D85E7F /* AudioTool */ = {
 			isa = PBXGroup;
 			children = (
+				EEF87B121C311A4900454F51 /* noke.png */,
+				EEF87B141C311AA700454F51 /* noke_Left.png */,
 				EE2D45761C2797E200D85E7F /* AudioTool.h */,
 				EE2D45771C2797E200D85E7F /* AudioTool.m */,
 				EE2D45741C2797E200D85E7F /* NoiseAnalyzer.h */,
@@ -284,6 +290,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				EE2D45821C2799F000D85E7F /* AudioTableViewCell.xib in Resources */,
+				EEF87B151C311AA700454F51 /* noke_Left.png in Resources */,
+				EEF87B131C311A4900454F51 /* noke.png in Resources */,
 				EE2D454A1C27874E00D85E7F /* LaunchScreen.storyboard in Resources */,
 				EE2D45471C27874E00D85E7F /* Assets.xcassets in Resources */,
 				EE2D45451C27874E00D85E7F /* Main.storyboard in Resources */,
@@ -457,6 +465,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = Record_Tool/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -471,6 +480,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = Record_Tool/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

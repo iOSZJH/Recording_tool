@@ -13,8 +13,8 @@
 @class AudioTool;
 
 @protocol AudioToolDelegate <NSObject>
-@optional
 
+@optional
 //所有的处理都在这三个里面实现
 /**
  *开始录音录音时所做操作
@@ -33,6 +33,14 @@
  */
 -(void) whenEndRecord:(AudioTool *)audioTool withRecordPathArray:(NSArray *)audio_pathArr;
 
+@optional
+/**
+ *播放器的处理，获取录制播放当前时间
+ */
+
+-(void)whenPlaying:(AudioTool *)audioTool withPlayTimer:(float)playTime;
+
+
 
 @end
 
@@ -45,13 +53,16 @@
 
 @property (nonatomic ,copy)NSString *audio_path;
 @property (nonatomic,strong) NSTimer *timer;//录音声波监控（注意这里暂时不对播放进行监控）
+@property (nonatomic,strong) NSTimer *timer2;
+@property float playTimeNum;
+
 
 +(AudioTool *)shared;
 
 /**
  *录音所有文件列表
  */
--(NSMutableArray *)audioArr;
+-(NSArray *)audioArr;
 /**
  *开始录音
  */

@@ -101,6 +101,9 @@
    
 }
 
+-(void)whenPlaying:(AudioTool *)audioTool withPlayTimer:(float)playTime {
+
+}
 
 #pragma mark -- tableView的代理
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {

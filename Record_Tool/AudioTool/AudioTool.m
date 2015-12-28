@@ -25,6 +25,7 @@
     if ((self = [super init]))
     {
         self.delegate = nil;
+        self.playTimeNum = 0.0;
     }
     return self;
 }
@@ -96,10 +97,12 @@
  *采样文件
  *@return 采样列表
  */
--(NSMutableArray *)audioArr {
+-(NSArray *)audioArr {
     NSFileManager *fileManager = [NSFileManager defaultManager];
     NSArray *paths = NSSearchPathForDirectoriesInDomains( NSDocumentDirectory,NSUserDomainMask, YES);
-    return [fileManager directoryContentsAtPath:[paths objectAtIndex:0]];
+    //return [fileManager directoryContentsAtPath:[paths objectAtIndex:0]];
+    return [fileManager contentsOfDirectoryAtPath:[paths objectAtIndex:0] error:nil];
+    
 }
 
 /**
@@ -113,19 +116,37 @@
     return _timer;
 }
 
+-(NSTimer *)timer2 {
+
+    if (!_timer2) {
+        _timer2 = [NSTimer scheduledTimerWithTimeInterval:0.1f target:self selector:@selector(playPowerChange) userInfo:nil repeats:YES];
+    }
+    
+    return _timer2;
+}
+
 /**
  *  录音声波状态设置
  */
 -(void)audioPowerChange{
     [self.audioRecorder updateMeters];//更新测量值
     float power= [self.audioRecorder averagePowerForChannel:0];//取得第一个通道的音频，注意音频强度范围时-160到0
-   // printf("%f\n",power);
     
     //录制过程中处理的对象
     NSDictionary *dict = @{@"power":[NSString stringWithFormat:@"%f",power]};
-    
     [self.delegate whenRecording:self withRecordMessage:dict];
     
+}
+
+-(void)playPowerChange {
+    _playTimeNum += 0.1;
+    
+    if ([[NSString stringWithFormat:@"%.1f",_playTimeNum] isEqualToString:[NSString stringWithFormat:@"%.1f",_audioPlayer.duration]]) {
+        self.timer2.fireDate = [NSDate distantFuture];
+        _playTimeNum = 0.0;
+    }
+    
+    [self.delegate whenPlaying:self withPlayTimer:_playTimeNum];
 }
 
 /**
@@ -215,9 +236,13 @@
         NSLog(@"创建播放器过程中发生错误，错误信息：%@",error.localizedDescription);
     }
 
-        if (!_audioPlayer.isPlaying) {
-            [_audioPlayer play];
-        }
+            if (!_audioPlayer.isPlaying) {
+            
+                [_audioPlayer play];
+                self.timer2.fireDate = [NSDate distantPast];
+                
+               
+            }
 }
 
 -(void)pausePlay {
@@ -232,6 +257,9 @@
         NSLog(@"停止播放");
         [_audioPlayer stop];
         _audioPlayer = nil;
+        
+        self.timer2.fireDate = [NSDate distantFuture];
+        //self.playTimeNum = 0.0;
     }
 }
 
